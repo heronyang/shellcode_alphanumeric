@@ -2,7 +2,7 @@ all:
 	gcc -g -m32 -fno-stack-protector -z execstack main.c -o main
 
 dump:
-	objdump -D main > out.txt
+	objdump -M intel -D main > out.txt
 
 debug:
 	gdb ./main
