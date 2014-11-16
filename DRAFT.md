@@ -125,7 +125,11 @@ j 0:            PUSH 0x30
 X:              POP EAX
 5 k O O O:      XOR EAX, $0x4F4F4F6B
 P:              PUSH EAX
-P:              PUSH EAX                # should pop twice (skip INT 0x80)
+```
+
+### t
+```
+P:              PUSH EAX
 ```
 
 ### [P8] EAX: set to 11 (0x0b)

